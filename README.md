@@ -13,6 +13,23 @@ It is the second part of the tutorial the one that explains how to use Python/Fl
 ## Part II: [Building and running the web service](notebooks/online-recommendations.ipynb)  
 
 ## Quick start  
+```
+# download the small movielens dataset
+./download_data.py 
+
+# launch the webservice in local spark
+SPARK_HOME=/path/to/my/spark/directory ./start_server.sh
+```
+```
+# get top 5 recommendations for user 1
+curl http://localhost:8765/1/ratings/top/5
+
+# get user's 1 rating of movie 7
+curl localhost:8765/1/ratings/7
+
+# user 1 gives movie 260 rating 8
+curl -X POST -d '260,8' http://localhost:8765/1/ratings
+```
 
 The file `server/server.py` starts a [CherryPy](http://www.cherrypy.org/) server running a 
 [Flask](http://flask.pocoo.org/) `app.py` to start a RESTful
