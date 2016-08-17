@@ -8,3 +8,4 @@ ipython_notebook_spark.out
 **/*.zip
 **/datasets/
 **/models/
+env
